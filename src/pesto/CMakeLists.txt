@@ -12,7 +12,9 @@ add_subdirectory(tests)
 add_subdirectory(demo)
 
 find_package(OpenGL REQUIRED)
-
+find_package(JPEG REQUIRED)
+find_package(PNG REQUIRED)
+find_package(SDL2 REQUIRED)
 
 add_library(pesto
     Window.cpp
@@ -70,10 +72,10 @@ target_include_directories(pesto
     )
 
 target_link_libraries(pesto
-    "jpeg"
+    ${JPEG_LIBRARIES}
     "tinyxml2"
-    "png"
-    "sdl2"
+    ${PNG_LIBRARIES}
+    ${SDL2_LIBRARIES}
 )
 
 ## wasm
